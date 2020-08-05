@@ -1,0 +1,51 @@
+
+
+IF EXISTS ( SELECT * FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = N'dbo' and TABLE_NAME = N'Employee' and TABLE_TYPE = N'BASE TABLE' ) 
+BEGIN DROP TABLE [dbo].[Employee] 
+END 
+
+
+IF EXISTS ( SELECT * FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = N'dbo' and TABLE_NAME = N'Department' and TABLE_TYPE = N'BASE TABLE' ) 
+BEGIN DROP TABLE [dbo].[Department] 
+END 
+
+GO
+
+CREATE TABLE [dbo].[Department](
+	[DepartmentUUID] [uniqueidentifier] NOT NULL,
+	[TheVersionProperty] [timestamp] NOT NULL,
+	[DepartmentName] [nvarchar](80) NULL,
+	[CreateDate] [datetime] NOT NULL,
+	[MyTinyInt] tinyint not null
+	)
+
+ALTER TABLE dbo.[Department] ADD CONSTRAINT PK_Department PRIMARY KEY NONCLUSTERED ([DepartmentUUID]) 
+GO
+
+ALTER TABLE [dbo].[Department] ADD CONSTRAINT CK_DepartmentName_Unique UNIQUE ([DepartmentName]) 
+GO
+
+CREATE TABLE [dbo].[Employee] ( 
+
+	[EmployeeUUID] [uniqueidentifier] NOT NULL,
+	[ParentDepartmentUUID] [uniqueidentifier] NOT NULL,
+	[TheVersionProperty] [timestamp] NOT NULL,
+	[SSN] [nvarchar](11) NOT NULL,
+	[LastName] [varchar](64) NOT NULL,
+	[FirstName] [varchar](64) NOT NULL,
+	[CreateDate] [datetime] NOT NULL,
+	[HireDate] [datetime] NOT NULL
+	)
+
+GO
+
+ALTER TABLE dbo.Employee ADD CONSTRAINT PK_Employee PRIMARY KEY NONCLUSTERED (EmployeeUUID) 
+GO
+
+
+ALTER TABLE [dbo].[Employee] ADD CONSTRAINT CK_SSN_Unique UNIQUE (SSN) 
+GO
+
+ALTER TABLE [dbo].[Employee] ADD CONSTRAINT FK_EmployeeToDepartment FOREIGN KEY (ParentDepartmentUUID) REFERENCES dbo.Department (DepartmentUUID) 
+GO
+

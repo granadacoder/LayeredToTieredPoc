@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B845E2C8-74E1-4C92-ABD0-D7C2F14DB560}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Host</RootNamespace>
+    <AssemblyName>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Host</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceModelEx">
+      <HintPath>..\ThirdPartyReferences\ServiceModelEx.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebHttpCors">
+      <HintPath>..\ThirdPartyReferences\WebHttpCors.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data.MockDomData\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.MockDomainData.csproj">
+      <Project>{08f0466f-6290-49a4-b440-03f079787c90}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.MockDomainData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayerInterfaces\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataLayerInterfaces.csproj">
+      <Project>{3C22AB39-F7BC-49E7-AFF0-80D6FEF02670}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataLayerInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessLogic\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.BusinessLogic.csproj">
+      <Project>{BFFDAC90-69B5-4F99-A13C-F1C31F42F3B7}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataViaAdoNet.csproj">
+      <Project>{2CEAE347-6AC0-417A-A2C0-457DC4FE8372}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataViaAdoNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Domain.csproj">
+      <Project>{86B1E047-CE05-4B9E-9E5C-7425887C1957}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceInterfaces\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.ServiceInterfaces.csproj">
+      <Project>{410C1681-30F9-4AC0-8EF2-BF0EA370CB7F}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.ServiceInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wcf.Services\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Wcf.BusinessServices.csproj">
+      <Project>{1FCA023B-A5B7-4C77-911F-A4B1EBFA1A78}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Wcf.BusinessServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="CustomAppSettings.config" />
+    <None Include="ExternalConnectionStrings.config" />
+    <None Include="packages.config" />
+    <None Include="SystemDiagnostics.config" />
+    <None Include="UnityConfiguration.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WCFBehaviors.config" />
+    <None Include="WCFBindings.config" />
+    <None Include="WCFClient.config" />
+    <None Include="WCFExtensions.config" />
+    <None Include="WCFServices.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)CustomAppSettings.config $(TargetDir)CustomAppSettings.config
+copy $(ProjectDir)ExternalConnectionStrings.config $(TargetDir)ExternalConnectionStrings.config
+
+
+copy $(ProjectDir)WCFExtensions.config $(TargetDir)WCFExtensions.config
+copy $(ProjectDir)WCFBehaviors.config $(TargetDir)WCFBehaviors.config
+copy $(ProjectDir)WCFBindings.config $(TargetDir)WCFBindings.config
+copy $(ProjectDir)WCFClient.config $(TargetDir)WCFClient.config
+copy $(ProjectDir)WCFServices.config $(TargetDir)WCFServices.config
+copy $(ProjectDir)SystemDiagnostics.config $(TargetDir)SystemDiagnostics.config
+
+copy $(ProjectDir)UnityConfiguration.config $(TargetDir)UnityConfiguration.config</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

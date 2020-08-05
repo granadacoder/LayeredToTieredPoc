@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6FBF4E8-4581-46A3-ADF0-0D7EBE3A744E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.WebApi.Host</RootNamespace>
+    <AssemblyName>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.WebApi.Host</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>$(SolutionDir)packages\Microsoft.Owin.2.0.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>$(SolutionDir)packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>$(SolutionDir)packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>$(SolutionDir)packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Keys\AppSettingKeys.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ValuesController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="CustomAppSettings.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ExternalConnectionStrings.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnityConfiguration.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.BusinessLogic.csproj">
+      <Project>{bffdac90-69b5-4f99-a13c-f1c31f42f3b7}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.MockDomData\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.MockDomainData.csproj">
+      <Project>{08f0466f-6290-49a4-b440-03f079787c90}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.MockDomainData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayerInterfaces\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataLayerInterfaces.csproj">
+      <Project>{3c22ab39-f7bc-49e7-aff0-80d6fef02670}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataLayerInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataViaAdoNet.csproj">
+      <Project>{2ceae347-6ac0-417a-a2c0-457dc4fe8372}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Data.DomainDataViaAdoNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Domain.csproj">
+      <Project>{86b1e047-ce05-4b9e-9e5c-7425887c1957}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.BusinessServices\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.WebApi.BusinessServices.csproj">
+      <Project>{fc496d10-4cfc-4bc9-8ded-793df221a012}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.WebApi.BusinessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceInterfaces\MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.ServiceInterfaces.csproj">
+      <Project>{410c1681-30f9-4ac0-8ef2-bf0ea370cb7f}</Project>
+      <Name>MyCompany.MyTechnology.MyApplications.LayeredToTieredPoc.ServiceInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)CustomAppSettings.config $(TargetDir)CustomAppSettings.config
+copy $(ProjectDir)ExternalConnectionStrings.config $(TargetDir)ExternalConnectionStrings.config
+
+copy $(ProjectDir)UnityConfiguration.config $(TargetDir)UnityConfiguration.config</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
